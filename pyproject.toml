@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "kenall"
+version = "0.1.0"
+description = ""
+authors = ["Yoshiki Shinagawa <s.yoshiki1123@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+mojimoji = "^0.0.11"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+pytest-mock = "^3.6.0"
+pytest-cov = "^2.11.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
