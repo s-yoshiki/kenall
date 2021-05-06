@@ -8,18 +8,15 @@ class Parser:
     record_queue = []
     __opt = {}
 
-    def __init__(self, arg):
-        opt = {
-            'path': "KEN_ALL.csv",
-            'encoding': 'shift_jis',
-            'katakana_h2z': False,
-            'alnum_z2h': False,
+    def __init__(self, path="", encoding="shift_jis", katakana_h2z=False, alnum_z2h=False):
+        self.__opt = {
+            'path': path,
+            'katakana_h2z': katakana_h2z,
+            'alnum_z2h': alnum_z2h,
             'current_build_town': '',
             'current_build_town_kana': '',
         }
-        opt.update(arg)
-        self.__opt = opt
-        self.__fp = codecs.open(opt['path'], 'r', encoding=opt['encoding'])
+        self.__fp = codecs.open(path, 'r', encoding=encoding)
 
     def __iter__(self):
         return self

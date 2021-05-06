@@ -1,4 +1,5 @@
 from .base_row import BaseRow
+from .util import *
 import mojimoji
 import re
 
@@ -119,9 +120,8 @@ class Row(BaseRow):
                 "(ﾂｷﾞﾉﾋﾞﾙｦﾉｿﾞｸ)", ""
             )
         else:
-            ZEN2HAN = str.maketrans("０１２３４５６７８９", "0123456789")
             [build, floor] = town.split("（")
-            floor = floor.translate(ZEN2HAN)
+            floor = str_zen2han(floor)
             floor = re.findall(r'(\d+)階', floor)
             if len(floor) == 1:
                 self._item['floor'] = floor[0]
@@ -145,10 +145,9 @@ class Row(BaseRow):
             return
         subtown = []
         subtown_kana = []
-        ZEN2HAN = str.maketrans("０１２３４５６７８９", "0123456789")
         if re.search(r"（([\d〜、]+)丁目）$", self.town):
             # 丁目
-            town = self.town.translate(ZEN2HAN).replace("、", ",").split(",")
+            town = str_zen2han(self.town).replace("、", ",").split(",")
             for num in town:
                 range_choume = re.search(r"(\d+)〜(\d+)", num)
                 if range_choume:
@@ -168,7 +167,7 @@ class Row(BaseRow):
         elif re.search(r"^[^\（]+地割", self.town):
             # 地割
             town = list(filter(None, re.split(
-                r"^(.+\d+地割)(?:（(.+)）)?$", self.town.translate(ZEN2HAN))))
+                r"^(.+\d+地割)(?:（(.+)）)?$", str_zen2han(self.town))))
             town_kana = list(filter(None, re.split(
                 r"^(.+\d+ﾁﾜﾘ)(?:\((.+)\))?$", self.town_kana)))
             [prefix, koaza] = [town[0], '']

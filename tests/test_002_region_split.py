@@ -34,11 +34,7 @@ def test_region_split():
         ['東京都','トウキョウト','三宅島三宅村','ミヤケジマミヤケムラ','','','三宅島三宅村','ミヤケジマミヤケムラ','','','阿古','アコ'],
         ['東京都','トウキョウト','小笠原村','オガサワラムラ','','','小笠原村','オガサワラムラ','','','父島','チチジマ'],
     ]
-    postal = kenall.Parser({
-        'path': get_csv_path(),
-        'encoding': 'utf-8',
-        'katakana_h2z': True,
-    })
+    postal = generate_parser()
     for row in ans:
         item = next(postal)
         assert row[0] == item.pref

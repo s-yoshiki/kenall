@@ -11,9 +11,9 @@ def write_item(value):
     file.close()
 
 def generate_parser():
-    return kenall.Parser({
-        'path': get_csv_path(),
-        'encoding': 'utf-8',
-        'alnum_z2h': True,
-        'katakana_h2z': True,
-    })
+    return kenall.Parser(
+        path=get_csv_path(),
+        encoding='utf-8',
+        alnum_z2h=True,
+        katakana_h2z=True,
+    )
