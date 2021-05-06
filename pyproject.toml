@@ -1,8 +1,12 @@
 [tool.poetry]
 name = "kenall"
-version = "0.1.0"
-description = ""
+version = "0.0.1"
+description = "日本郵政が提供している郵便番号ファイル(通称:KEN_ALL.csv)をパースするPython用パッケージ"
 authors = ["Yoshiki Shinagawa <s.yoshiki1123@gmail.com>"]
+homepage = "https://github.com/s-yoshiki"
+repository = "https://github.com/s-yoshiki/kenall"
+documentation = "https://github.com/s-yoshiki/kenall"
+license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.6"
