@@ -44,8 +44,8 @@ for item in postal:
     print(item.ward_kana)     # 区名カナ
     print(item.town)          # 町域名
     print(item.town_kana)     # 町域名カナ
-    print(item.buiild)        # ビル名
-    print(item.buiild_kana)   # ビル名カナ
+    print(item.build)         # ビル名
+    print(item.build_kana)    # ビル名カナ
     print(item.floor)         # ビル階層
     print(item.dict)          # dictionary形式で取得
 ```
